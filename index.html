@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff1f6">
+<title>إلى رويدا ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
+:root{--pink:#f2a2bf;--deep:#a64d75;--rose:#fff0f5;--ink:#63394e;--gold:#d8b778;--lilac:#e9d8f4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;font-family:'Cairo',sans-serif;color:var(--ink);background:radial-gradient(circle at 12% 12%,#fff 0 4%,transparent 28%),radial-gradient(circle at 90% 70%,#f5e5ff 0 2%,transparent 28%),linear-gradient(135deg,#fff7fa,#fbe3ed 55%,#f6edff);overflow-x:hidden}
+button,input{font:inherit}.screen{min-height:100vh;display:none;align-items:center;justify-content:center;padding:24px}.screen.active{display:flex}
+.floaties{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.heart{position:absolute;bottom:-45px;color:#e78daf;opacity:.32;animation:rise linear infinite;text-shadow:0 3px 10px #e78daf30}@keyframes rise{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+.panel{position:relative;z-index:1;background:#ffffffdf;border:1px solid #fff;box-shadow:0 22px 70px #a94f7620;border-radius:32px;padding:34px;width:min(100%,470px);text-align:center;backdrop-filter:blur(14px)}
+.logo-heart{font-size:48px;color:#e58caf;animation:pulse 1.7s infinite}@keyframes pulse{50%{transform:scale(1.16)}}
+h1{font-size:clamp(26px,5vw,36px);margin:8px 0;color:#a64d75}.sub{color:#a77b8e;line-height:1.9;margin:0 0 24px}
+.field{text-align:right;margin:15px 0}.field label{display:block;font-size:14px;margin:0 7px 7px;color:#8f5570}.field input{width:100%;padding:14px 16px;border:1px solid #f1c8d8;border-radius:15px;background:#fffafd;outline:none;color:#63394e;transition:.2s}.field input:focus{border-color:#d77fa3;box-shadow:0 0 0 4px #f7dce7}.hint{font-size:12px;color:#b17d96;margin:7px 7px 0}
+.btn{border:0;border-radius:16px;padding:13px 25px;background:linear-gradient(135deg,#e99ab8,#c86e96);color:white;font-weight:700;cursor:pointer;box-shadow:0 9px 22px #d77fa344;transition:.22s}.btn:hover{transform:translateY(-3px);filter:saturate(1.1);box-shadow:0 13px 25px #d77fa355}.btn.secondary{background:#fff;color:#a64d75;border:1px solid #f0c7d8;box-shadow:none}.error{min-height:26px;color:#bd527a;font-size:13px;margin:8px 0 2px}.tiny{font-size:12px;color:#b18b9b;margin-top:18px}
+.home-wrap{width:min(100%,900px);position:relative;z-index:1;text-align:center}.hero{padding:42px 20px 24px}.eyebrow{letter-spacing:2px;color:#b77a93;font-size:12px}.hero h1{font-size:clamp(38px,8vw,68px);margin:8px}.hero p{font-size:17px;color:#93677c;line-height:2;margin:8px auto}.name-script{font-family:'Amiri',serif;color:#bd6488;font-size:clamp(42px,8vw,70px);text-shadow:0 5px 18px #d88aaa30}
+.decor{font-size:24px;color:#d88aaa;letter-spacing:10px;margin:18px}
+.book-card{margin:10px auto 0;width:min(100%,680px);padding:25px;background:#fffafc;border:1px solid #f3d5e1;border-radius:27px;box-shadow:0 18px 50px #9e54731a}
+.book-cover{min-height:355px;border-radius:19px;background:linear-gradient(145deg,#f9dce8,#fff8fb 52%,#eedcf5);border:1px solid #eec4d5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px;position:relative;overflow:hidden;box-shadow:inset 0 0 0 8px #ffffff70,inset 0 0 0 9px #e7b9cc}
+.book-cover:before,.book-cover:after{content:"";position:absolute;width:210px;height:210px;border:1px solid #d99ab4;border-radius:50%;opacity:.38}.book-cover:before{top:-120px;right:-80px}.book-cover:after{bottom:-125px;left:-70px}
+.cover-ornament{position:absolute;color:#d18aa8;font-size:28px;filter:drop-shadow(0 3px 5px #d18aa833)}.cover-ornament.a{top:25px;left:30px}.cover-ornament.b{bottom:25px;right:30px}
+.cover-icon{font-size:58px;filter:drop-shadow(0 7px 8px #a64d7525)}.book-cover h2{font-family:'Amiri',serif;font-size:43px;color:#a64d75;margin:10px}.book-cover p{color:#9b6c80;margin:0}.cover-line{width:125px;height:2px;background:linear-gradient(90deg,transparent,#d8a2b8,transparent);margin:16px}
+.book-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.pull-area{padding:70px 15px 55px;margin-top:34px;border-top:1px dashed #e8bfd0;position:relative}.pull-label{font-size:13px;color:#ad7890;letter-spacing:2px}.pull-btn{margin:13px auto 0;background:#fff;border:1px solid #efcbd9;border-radius:30px;color:#ad6384;padding:12px 28px;box-shadow:0 8px 25px #ad63841a;display:flex;align-items:center;gap:12px}.pull-btn .arrow{font-size:22px;animation:bounce 1.4s infinite}@keyframes bounce{50%{transform:translateY(6px)}}
+.next-section{min-height:75vh;padding:70px 22px 90px;display:flex;align-items:center;justify-content:center}.coming-card{max-width:650px;width:100%;padding:38px 25px;background:#ffffffc9;border:1px solid white;border-radius:28px;box-shadow:0 20px 55px #9e54731a}.coming-card .big{font-size:45px}.coming-card h2{font-family:'Amiri',serif;color:#a64d75;font-size:35px;margin:10px}.coming-card p{line-height:2;color:#93677c}
+.reader{width:min(100%,760px);position:relative;z-index:1}.reader-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;color:#a66c85;font-size:13px}
+.paper{background:linear-gradient(90deg,#fff9f7,#fff 8%,#fff 92%,#fff8f7);border:1px solid #f0d9df;border-radius:8px 25px 25px 8px;box-shadow:0 22px 65px #8c47601c;min-height:450px;padding:clamp(25px,6vw,55px);position:relative;overflow:hidden}
+.paper:before{content:"";position:absolute;right:22px;top:22px;bottom:22px;border-right:1px solid #f4e2e6}.paper:after{content:"♡";position:absolute;left:25px;bottom:14px;color:#f0d6e1;font-size:25px}
+.paper-inner{padding-right:16px}.paper h2{font-family:'Amiri',serif;color:#ae6282;font-size:34px;margin:0 0 18px}.story{font-family:'Amiri',serif;font-size:24px;line-height:2.15;color:#65495a;white-space:pre-wrap;min-height:260px}.cursor{display:inline-block;width:2px;height:23px;background:#d77fa3;margin-right:3px;vertical-align:middle;animation:blink .8s infinite}@keyframes blink{50%{opacity:0}}
+.reader-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}.reader-controls .btn{min-width:115px}.dots{color:#ae7890;font-size:13px}
+.finish-note{display:none;text-align:center;margin:20px auto 0;padding:18px;background:#fff8fb;border:1px solid #f0d3df;border-radius:18px;color:#9c6680;line-height:2}.finish-note.show{display:block}
+.footer{font-size:12px;color:#b48b9c;margin-top:30px}
+@media(max-width:520px){.panel{padding:27px 21px}.paper{min-height:410px}.story{font-size:21px}.reader-controls .btn{min-width:95px;padding:11px 14px}.book-cover{min-height:300px}}
+
+/* Cinematic journey */
+#journey{position:fixed;inset:0;z-index:20;display:none;background:#05070c;color:#f5f1ed;overflow-y:auto;font-family:'Cairo',sans-serif}
+#journey.open{display:block}
+.journey-scene{min-height:100svh;position:relative;display:none;align-items:center;justify-content:center;text-align:center;padding:9vh 8vw;background-size:cover;background-position:center}
+.journey-scene.active{display:flex;animation:sceneIn 1s ease both}
+.journey-scene:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,5,10,.35),rgba(3,5,10,.72) 70%,#05070c)}
+.journey-content{position:relative;z-index:1;max-width:850px;margin:auto}
+.journey-kicker{font-size:11px;letter-spacing:4px;color:#d7c3a3;text-transform:uppercase;margin-bottom:22px}
+.journey-number{font-family:Georgia,serif;font-size:clamp(48px,10vw,105px);font-weight:400;line-height:1;color:#fff;margin:10px 0;text-shadow:0 8px 40px #000}
+.journey-title{font-size:clamp(28px,5vw,48px);font-weight:500;line-height:1.5;color:#fff;margin:12px 0}
+.journey-copy{font-size:clamp(15px,2vw,19px);line-height:2.1;color:#e5e0da;max-width:690px;margin:15px auto}
+.journey-rule{height:1px;width:70px;background:#c8ae86;margin:26px auto}
+.journey-next{margin-top:28px;border:1px solid rgba(232,218,197,.55);background:rgba(9,12,18,.28);color:#f8f2e9;padding:13px 28px;border-radius:2px;letter-spacing:1px;cursor:pointer;transition:.25s}
+.journey-next:hover{background:#d1b58a;color:#111;transform:translateY(-2px)}
+.journey-close{position:fixed;top:20px;left:22px;z-index:25;background:#1119;border:1px solid #ffffff55;color:white;padding:9px 15px;border-radius:2px;cursor:pointer}
+.journey-progress{position:fixed;z-index:25;top:0;right:0;height:2px;background:#c9ad82;width:0;transition:width .6s}
+.journey-scene.s1{background-image:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2200&q=90')}
+.journey-scene.s2{background-image:url('https://images.unsplash.com/photo-1464802686167-b939a6910659?auto=format&fit=crop&w=2200&q=90')}
+.journey-scene.s3{background-image:url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2200&q=90')}
+.journey-scene.s4{background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2200&q=90')}
+.journey-scene.s5{background-image:linear-gradient(135deg,#18212c,#293541 45%,#10141b)}
+.journey-scene.s6{background-image:linear-gradient(135deg,#19171a,#2d2428 55%,#111)}
+.journey-scene.final{background:#08090d}
+.final-photo-wrap{width:min(72vw,390px);margin:25px auto 20px;padding:9px;border:1px solid #c9ad82;background:linear-gradient(145deg,#d9c5a3,#75634b,#d9c5a3);box-shadow:0 20px 80px #000}
+.final-photo{width:100%;max-height:54svh;object-fit:cover;object-position:center 47%;display:block;filter:contrast(1.04) saturate(.88)}
+.final-line{font-family:'Amiri',serif;font-size:clamp(25px,4vw,40px);line-height:1.9;color:#f2e8dc;margin:12px auto;max-width:760px}
+.journey-footer{color:#a9a19a;font-size:12px;letter-spacing:1px;margin-top:25px}
+.journey-start-card{margin:26px auto 0;max-width:680px;padding:28px;background:linear-gradient(135deg,#fffdfd,#f8edf2);border:1px solid #ead8df;border-radius:20px}
+.journey-start-card p{line-height:2;color:#866778}
+@keyframes sceneIn{from{opacity:0;transform:scale(1.025)}to{opacity:1;transform:scale(1)}}
+@media(max-width:600px){.journey-scene{padding:12vh 7vw}.journey-copy{line-height:1.9}.final-photo-wrap{width:min(78vw,340px)}.journey-close{top:12px;left:12px}}
+
+
+.cd-wrap{display:flex;justify-content:center;margin:26px auto 4px}.cd-button{border:0;background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:13px;color:#9b6680}.cd-disc{width:142px;height:142px;border-radius:50%;display:block;position:relative;border:1px solid #c6c4c5;background:repeating-radial-gradient(circle at center,#f8f8f8 0 2px,#d8d8da 3px 4px,#f1f1f2 5px 8px);box-shadow:0 12px 28px #78576b30,inset 0 0 18px #9995;transition:transform .45s,box-shadow .45s}.cd-disc:before{content:"";position:absolute;inset:13px;border-radius:50%;border:1px solid #ffffff}.cd-hole{position:absolute;width:25px;height:25px;border-radius:50%;background:#fff;border:1px solid #aaa;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:inset 0 0 0 6px #e2e2e4}.cd-shine{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,transparent 0 18%,#ffffff99 22%,transparent 28% 48%,#ffffff88 53%,transparent 60% 100%)}.cd-button:hover .cd-disc{transform:rotate(22deg) scale(1.06);box-shadow:0 16px 36px #78576b44}.cd-caption{font-weight:700;font-size:15px}.cd-modal{position:fixed;inset:0;z-index:40;display:none;align-items:center;justify-content:center;padding:20px;background:#09070bd9;backdrop-filter:blur(9px)}.cd-modal.open{display:flex;animation:sceneIn .35s ease both}.cd-modal-card{position:relative;width:min(100%,520px);max-height:92svh;overflow:auto;background:#fffafc;border:1px solid #e8cbd8;padding:24px;border-radius:18px;text-align:center;box-shadow:0 25px 90px #0008}.cd-modal-close{position:absolute;top:9px;left:12px;border:0;background:transparent;color:#94657b;font-size:28px;cursor:pointer}.cd-modal-kicker{font-size:10px;letter-spacing:2px;color:#b17d96;margin:7px 0 15px}.cd-surprise-image{display:block;width:100%;max-height:62svh;object-fit:contain;background:#f3e8ed;border-radius:9px}.cd-modal-card h2{font-family:'Cairo',sans-serif;font-size:clamp(19px,4vw,25px);color:#a64d75;margin:18px 0 6px}.cd-modal-card p{color:#916d7f;line-height:1.8;margin:0}@media(max-width:520px){.cd-disc{width:120px;height:120px}.cd-modal-card{padding:18px}}
+
+.envelope-section{max-width:850px}
+.envelope-intro{font-size:16px!important;color:#a56f87!important;margin:8px 0 28px!important}
+.envelope-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:570px;margin:0 auto}
+.envelope{position:relative;min-height:170px;border:1px solid #e6c6d3;border-radius:9px;background:linear-gradient(145deg,#fffaf4,#f5e6dc);box-shadow:0 13px 28px #9c6b7b20;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:16px 10px;transition:transform .25s,box-shadow .25s}
+.envelope:hover{transform:translateY(-5px);box-shadow:0 18px 34px #9c6b7b30}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 49.5%,#e9d3c9 50%,transparent 50.7%),linear-gradient(35deg,transparent 49.5%,#efddd4 50%,transparent 50.7%);opacity:.9}
+.envelope:after{content:"";position:absolute;left:0;right:0;bottom:0;height:58%;background:linear-gradient(145deg,#f4e4dc,#ead2d0);clip-path:polygon(0 100%,50% 0,100% 100%);border-top:1px solid #e2c6c5}
+.envelope-paper{position:absolute;z-index:0;top:17px;width:72%;height:75%;border:1px solid #ead8ce;background:#fffdf9;border-radius:3px;color:#c58a9e;font-family:Georgia,serif;font-size:25px;padding-top:13px;transition:transform .45s}
+.envelope-flap{position:absolute;z-index:2;top:0;left:0;right:0;height:57%;background:linear-gradient(160deg,#f9eee7,#e8d0ca);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .5s;backface-visibility:hidden}
+.envelope-label,.envelope-hint{position:relative;z-index:4;color:#755364;text-shadow:0 1px #fff9}
+.envelope-label{font-weight:700;font-size:15px;margin-bottom:3px}
+.envelope-hint{font-size:11px;color:#a77a8b}
+.envelope.opened .envelope-flap{transform:rotateX(180deg);z-index:0}
+.envelope.opened .envelope-paper{transform:translateY(-30px)}
+.envelope-reveal{display:none;max-width:570px;margin:28px auto 0;padding:25px 22px;background:linear-gradient(145deg,#fffdfb,#fff5f7);border:1px solid #e8d2d9;border-radius:14px;box-shadow:0 15px 35px #9c6b7b18;animation:sceneIn .35s ease both}
+.envelope-reveal.show{display:block}
+.reveal-seal{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;background:#b87591;color:white;box-shadow:0 5px 14px #b8759144}
+.reveal-title{font-family:'Amiri',serif;font-size:26px;color:#a64d75}
+.envelope-reveal p{font-family:'Amiri',serif;font-size:23px;line-height:1.9;color:#68495a;margin:8px 0 18px}
+.envelope-footer{font-size:12px;color:#b48b9c;margin-top:28px}
+@media(max-width:520px){.envelope-grid{gap:12px}.envelope{min-height:145px;padding:12px 5px}.envelope-label{font-size:13px}.envelope-reveal p{font-size:21px}}
+
+/* Fifth section — framed photo & voice note */
+.voice-section{max-width:760px;text-align:center;padding:30px 24px 34px;background:linear-gradient(145deg,#fffdfb,#fff7fa 65%,#f7effa);border:1px solid #f0dce4;box-shadow:0 24px 65px #80536a20}
+.voice-section .eyebrow{letter-spacing:3px}
+.voice-section h2{margin:10px 0 24px;font-family:'Amiri',serif;font-size:clamp(30px,5vw,40px);color:#a66b82}
+.memory-frame{width:min(100%,590px);margin:0 auto 26px;padding:11px;background:linear-gradient(145deg,#fff,#f6e8ed 45%,#fff);border:1px solid #e6d1d8;box-shadow:0 18px 42px #68435426, inset 0 0 0 1px #fff;border-radius:5px;position:relative}
+.memory-frame:before{content:"";position:absolute;inset:5px;border:1px solid #d9bdc8;pointer-events:none}
+.memory-frame img{display:block;width:100%;height:auto;max-height:430px;object-fit:cover;border:1px solid #eadde2}
+.voice-player{max-width:590px;margin:0 auto;padding:19px 20px 17px;background:linear-gradient(135deg,#fff,#fff7fa);border:1px solid #ecd6df;border-radius:18px;box-shadow:0 10px 28px #a76e8517;direction:ltr}
+.voice-player-top{display:flex;align-items:center;gap:14px}
+.voice-play{flex:0 0 48px;width:48px;height:48px;border:0;border-radius:50%;background:linear-gradient(145deg,#d997b1,#ae6688);color:#fff;font-size:19px;cursor:pointer;box-shadow:0 6px 15px #ae668844;transition:transform .2s}
+.voice-play:hover{transform:scale(1.06)}
+.voice-meta{flex:1;text-align:left;min-width:0}
+.voice-name{font-size:14px;font-weight:700;color:#765365;letter-spacing:.2px}
+.voice-caption{font-size:11px;color:#b08b9a;margin-top:3px}
+.voice-wave{height:27px;display:flex;align-items:center;gap:3px;margin-top:12px;opacity:.85}
+.voice-wave i{display:block;width:3px;border-radius:5px;background:#d7a2b7;height:var(--h)}
+.voice-timeline{display:flex;align-items:center;gap:10px;margin-top:10px;color:#9c7c8b;font-size:11px;font-variant-numeric:tabular-nums}
+.voice-timeline input{flex:1;min-width:0;accent-color:#b87591;cursor:pointer}
+.voice-foot{font-size:11px;color:#b18e9d;margin-top:12px}
+@media(max-width:520px){.voice-section{padding:24px 14px}.memory-frame{padding:7px}.voice-player{padding:15px 13px}.voice-play{width:44px;height:44px;flex-basis:44px}}
+
+
+/* Final thank-you section */
+.final-thanks{min-height:88vh;padding:76px 20px;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 20%,rgba(223,185,197,.22),transparent 55%)}
+.final-thanks-card{width:min(720px,100%);padding:42px 26px;border:1px solid rgba(177,133,147,.32);border-radius:28px;background:linear-gradient(145deg,rgba(255,250,248,.96),rgba(248,237,239,.94));box-shadow:0 24px 70px rgba(72,45,55,.12);text-align:center;position:relative;overflow:hidden}
+.final-thanks-card:before,.final-thanks-card:after{content:"";position:absolute;width:170px;height:1px;background:linear-gradient(90deg,transparent,#c89eaa,transparent);top:26px;left:calc(50% - 85px)}
+.final-thanks-card:after{top:auto;bottom:26px}
+.final-thanks-card h2{margin:12px 0 10px;font-size:clamp(27px,5vw,40px);color:#624653}
+.final-thanks-card p{color:#8b707a;font-size:15px;line-height:1.9;margin:0 auto 24px}
+.final-thanks-btn{border:0;border-radius:999px;padding:15px 30px;background:linear-gradient(135deg,#805b6b,#b78391);color:#fff;font:600 16px inherit;cursor:pointer;box-shadow:0 10px 24px rgba(128,91,107,.22);transition:transform .2s,box-shadow .2s}
+.final-thanks-btn:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(128,91,107,.28)}
+.thanks-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(31,22,28,.88);backdrop-filter:blur(10px);overflow:hidden}
+.thanks-modal.open{display:flex}
+.thanks-message{position:relative;z-index:2;width:min(650px,100%);padding:clamp(28px,6vw,54px) 25px;border-radius:26px;text-align:center;background:#fff9f8;border:1px solid rgba(255,255,255,.7);box-shadow:0 25px 90px rgba(0,0,0,.3);animation:thanksPop .65s cubic-bezier(.2,.8,.2,1) both}
+.thanks-message .tiny{letter-spacing:3px;font-size:10px;color:#ae8492}
+.thanks-message h3{font-size:clamp(24px,5vw,38px);line-height:1.75;color:#674b57;margin:18px 0}
+.thanks-close{border:1px solid #d9c1c9;background:transparent;color:#795d68;border-radius:999px;padding:9px 22px;cursor:pointer}
+.flying-heart{position:fixed;z-index:1;bottom:-40px;pointer-events:none;color:#e7a8bc;text-shadow:0 4px 15px rgba(255,170,198,.3);animation:heartRise var(--dur,5s) linear forwards;left:var(--x)}
+@keyframes heartRise{0%{transform:translateY(0) rotate(0deg) scale(.65);opacity:0}12%{opacity:1}100%{transform:translateY(-115vh) rotate(var(--rot,35deg)) scale(1.2);opacity:0}}
+@keyframes thanksPop{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:520px){.final-thanks-card{padding:36px 20px}.thanks-message{padding:34px 20px}}
+
+
+.final-signature{margin:24px 4px 12px auto;width:max-content;max-width:100%;font-family:"Segoe Script","Brush Script MT",cursive;font-style:italic;font-weight:600;font-size:clamp(27px,5vw,39px);letter-spacing:1px;color:#986b7b;transform:rotate(-5deg);text-shadow:0 2px 0 rgba(255,255,255,.8);padding:0 10px 5px;border-bottom:1px solid rgba(152,107,123,.45)}
+.final-signature span{font-family:serif;font-style:normal;font-size:.65em;color:#d58da5;vertical-align:middle}
+
+.final-apology{margin:22px auto 28px;max-width:570px;color:#795d68;font-size:15px;line-height:2.05;text-align:center;white-space:normal}
+
+/* iOS/Safari Arabic shaping fix: keep Arabic text in one text node. */
+#story{
+  direction:rtl;
+  unicode-bidi:plaintext;
+  text-align:right;
+  letter-spacing:0 !important;
+  word-spacing:normal;
+  word-break:normal;
+  overflow-wrap:break-word;
+  font-kerning:normal;
+  -webkit-font-smoothing:antialiased;
+  font-family:'Amiri','Geeza Pro','Noto Naskh Arabic',Tahoma,serif;
+}
+#story.story-reveal{
+  animation:storyFadeIn .55s ease both;
+}
+@keyframes storyFadeIn{
+  from{opacity:0; transform:translateY(5px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+</style>
+</head>
+<body>
+<div class="floaties" id="floaties"></div>
+<section class="screen active" id="login">
+  <div class="panel">
+    <div class="logo-heart">♡</div><div class="eyebrow">A LITTLE PLACE MADE WITH LOVE</div>
+    <h1>قبل ما تدخلي...</h1><p class="sub">كان نفسي أجبلك نوتة أنا كمان،<br>بس قولت أقولك الكلمتين هنا يا جميلة ♡</p>
+    <form id="loginForm">
+      <div class="field"><label for="name">الاسم (أكتر اسم بناديكي بيه)</label><input id="name" autocomplete="off" placeholder="اكتبي اسم الدلع هنا"></div>
+      <div class="field"><label for="password">كلمة السر <span style="color:#b17d96;font-size:12px;font-weight:500;margin-right:6px">(كلمة سر موبايل محمد)</span></label><input id="password" type="password" inputmode="numeric" placeholder="سر صغير بينا"></div>
+      <div class="error" id="error" aria-live="polite"></div><button class="btn" type="submit" style="width:100%">افتحي ♡</button>
+    </form>
+  </div>
+</section>
+
+<section class="screen" id="home">
+ <main class="home-wrap">
+  <div class="hero">
+   <div class="eyebrow">A WORLD JUST FOR YOU</div><div class="name-script">رويدا</div>
+   <h1>أهلاً يا كتكت ♡</h1>
+   
+   <div class="decor">♡ ✿ ♡ ✧ ♡</div>
+  </div>
+  <div class="book-card">
+   <div class="book-cover">
+    <span class="cover-ornament a">✿</span><span class="cover-ornament b">♡</span>
+    <div class="cover-icon">📖</div><h2>كلمتين من حمود</h2><div class="cover-line"></div>
+    <p>أتمنى يعجبوكي ♡</p><div style="margin-top:20px;color:#c27b99">✧ ❀ ✧</div>
+   </div>
+   <div class="book-actions"><button class="btn" id="openBook">OPEN BOOK ♡</button><button class="btn secondary" id="goDown">انزلي تحت ↓</button></div>
+  </div>
+  <div class="pull-area" style="padding:22px 15px 12px;margin-top:18px;border-top:1px dashed #e8bfd0"><div class="pull-label">♡ ولسه فيه صفحة تانية مستنياكي تحت ♡</div></div>
+  <section class="next-section" id="more">
+   <div class="coming-card"><div class="eyebrow">A CINEMATIC EXPERIENCE</div><h2>عايز أحكيلك حاجة بسيطة</h2><p>فيه حاجة صغيرة نفسي تشوفيها بنفسك...<br>تعالي شوفي ♡</p><button class="btn" id="startJourney" style="margin-top:14px">تعالي شوفي</button><div style="color:#b68b9c;font-size:20px;margin-top:18px;letter-spacing:7px">—  ✦  —</div></div>
+  </section>
+  <div style="text-align:center;padding:10px 15px 30px"><button class="btn secondary" id="thirdButton">انزلي تحت ↓</button></div>
+  <section class="next-section" id="thirdThing" style="min-height:75vh;padding-top:35px">
+   <div class="coming-card">
+    <div class="eyebrow">A LITTLE CONFESSION</div>
+    <h2>طبعا تحسبيني بكتبلك كل الكلام دا لمصلحه</h2>
+    <p>
+      فاكيد مستحيل انا فعلا الكلام دا جوايا واقل حاجه اقدمها لحد بجمالك وبحنيتك فاكيد مش علشان اوقعك فدباديبي هعمل كدا
+      <br><br>
+      انا كده كده ليا سلاح تاني وال اعرفه ان ال مبيجيش ب الحب ويترد عليا ب جمله (انسي الموضوع ) فبييجي ب قله الادب وانتي عارفاني ف الحته دي
+      <br><br>
+      عموما انا كده كده معايا سديهاتك لو موافقتيش ب الحب معايا بالغصب 😂😂
+    </p>
+    <div class="cd-wrap">
+      <button class="cd-button" id="openCD" aria-label="افتحي الاسطوانة">
+        <span class="cd-disc"><span class="cd-hole"></span><span class="cd-shine"></span></span>
+        <span class="cd-caption">افتحي الـ CD</span>
+      </button>
+    </div>
+    <div class="hint" style="margin-top:10px">افتحي الاسطوانة وشوفي المفاجأة 👀</div>
+   </div>
+  </section>
+  <section class="next-section" id="fourthThing" style="min-height:100vh;padding:65px 20px">
+    <div class="coming-card envelope-section">
+      <div class="eyebrow">FOUR LITTLE NOTES</div>
+      <h2>ظروف صغيرة... وكلام من قلبي</h2>
+      <p class="envelope-intro">افتحيهم ظرف ظرف ♡</p>
+      <div class="envelope-grid">
+        <button class="envelope" type="button" data-envelope="0">
+          <span class="envelope-paper">♡</span><span class="envelope-flap"></span>
+          <span class="envelope-label">أجمل حاجة فيكي</span>
+          <span class="envelope-hint">افتحيني</span>
+        </button>
+        <button class="envelope" type="button" data-envelope="1">
+          <span class="envelope-paper">♡</span><span class="envelope-flap"></span>
+          <span class="envelope-label">حاجة بتزعّلني</span>
+          <span class="envelope-hint">افتحيني</span>
+        </button>
+        <button class="envelope" type="button" data-envelope="2">
+          <span class="envelope-paper">♡</span><span class="envelope-flap"></span>
+          <span class="envelope-label">أمنية ليكي</span>
+          <span class="envelope-hint">افتحيني</span>
+        </button>
+        <button class="envelope" type="button" data-envelope="3">
+          <span class="envelope-paper">♡</span><span class="envelope-flap"></span>
+          <span class="envelope-label">سر صغير بينا</span>
+          <span class="envelope-hint">افتحيني</span>
+        </button>
+      </div>
+      <div class="envelope-reveal" id="envelopeReveal" aria-live="polite">
+        <div class="reveal-seal">♡</div>
+        <div class="reveal-title" id="revealTitle"></div>
+        <p id="revealText"></p>
+        <button class="btn secondary" id="closeEnvelope" type="button">اقفلي الظرف</button>
+      </div>
+      <div class="envelope-footer">كل ظرف فيه حاجة صغيرة فكرت فيها وأنا بعملك الموقع ♡</div>
+    </div>
+  </section>
+  <section class="next-section" id="fifthThing" style="min-height:100vh;padding:65px 20px">
+    <div class="coming-card voice-section">
+      <div class="eyebrow">A LITTLE MEMORY</div>
+      <h2>طبعا مستغربه ليه بعمل كل دا وليه بحبك صح؟ افتحي الفويس</h2>
+      <div class="memory-frame"><img src="assets/rowida-memory.jpg" alt="صورة من الذكريات"></div>
+      <div class="voice-player">
+        <audio id="voiceAudio" preload="metadata" src="assets/rowida-voice.mp3"></audio>
+        <div class="voice-player-top">
+          <button class="voice-play" id="voiceToggle" type="button" aria-label="تشغيل">▶</button>
+          <div class="voice-meta">
+            <div class="voice-name">Voice note</div>
+            <div class="voice-caption">اضغطي تشغيل لسماع الريكورد</div>
+          </div>
+        </div>
+        <div class="voice-wave" aria-hidden="true"><i style="--h:8px"></i><i style="--h:14px"></i><i style="--h:19px"></i><i style="--h:11px"></i><i style="--h:23px"></i><i style="--h:16px"></i><i style="--h:9px"></i><i style="--h:20px"></i><i style="--h:25px"></i><i style="--h:13px"></i><i style="--h:18px"></i><i style="--h:8px"></i><i style="--h:22px"></i><i style="--h:15px"></i><i style="--h:10px"></i><i style="--h:24px"></i><i style="--h:17px"></i><i style="--h:11px"></i><i style="--h:20px"></i><i style="--h:14px"></i><i style="--h:8px"></i><i style="--h:18px"></i><i style="--h:25px"></i><i style="--h:12px"></i><i style="--h:19px"></i><i style="--h:9px"></i><i style="--h:16px"></i><i style="--h:22px"></i><i style="--h:12px"></i><i style="--h:7px"></i><i style="--h:18px"></i><i style="--h:24px"></i><i style="--h:13px"></i><i style="--h:20px"></i><i style="--h:10px"></i><i style="--h:16px"></i><i style="--h:23px"></i><i style="--h:12px"></i><i style="--h:8px"></i><i style="--h:19px"></i><i style="--h:14px"></i><i style="--h:22px"></i><i style="--h:9px"></i><i style="--h:17px"></i><i style="--h:25px"></i><i style="--h:12px"></i><i style="--h:18px"></i><i style="--h:8px"></i><i style="--h:21px"></i><i style="--h:14px"></i><i style="--h:10px"></i><i style="--h:23px"></i><i style="--h:16px"></i><i style="--h:9px"></i><i style="--h:19px"></i><i style="--h:12px"></i><i style="--h:24px"></i><i style="--h:15px"></i><i style="--h:8px"></i><i style="--h:20px"></i><i style="--h:13px"></i><i style="--h:18px"></i><i style="--h:10px"></i><i style="--h:22px"></i></div>
+        <div class="voice-timeline"><span id="voiceCurrent">0:00</span><input id="voiceSeek" type="range" min="0" max="100" value="0" step="0.1" aria-label="تقديم وتأخير الصوت"><span id="voiceDuration">0:34</span></div>
+      </div>
+      <div class="voice-foot">اضغطي ▶ للتشغيل أو ⏸ للإيقاف</div>
+    </div>
+  </section>
+
+<section class="next-section final-thanks" id="finalThing" style="min-height:88vh">
+  <div class="final-thanks-card">
+    <div class="eyebrow">ONE LAST THING</div>
+    <h2>وبكده وصلنا لآخر حاجة ♡</h2>
+    <p>اضغطي على الزرار</p>
+    <button class="final-thanks-btn" id="openThanks" type="button">اضغطي هنا ♡</button>
+  </div>
+</section>
+<div class="thanks-modal" id="thanksModal" aria-hidden="true">
+  <div class="thanks-message" role="dialog" aria-modal="true" aria-labelledby="thanksTitle">
+    <div class="tiny">THE END · THANK YOU</div>
+    <h3 id="thanksTitle">وبكده اكون خلصت يكتكوتي ♡<br><br>بتمنى يكون عجبك أو بسطك على الأقل ❤️<br>وشكراً من كل قلبي للوقت الجميل اللي قضيته معاكي.</h3>
+    <p class="final-apology">وطبعا بتاسفلك عن اي زعل عملتهولك وياريت تسامحينيي يحبيبتي و انا بجد كنت بحاول ابقا خفيف بس اوقات الغيره بتخليني متعصب فحقك عليا يحلوه و بالذات ان ضايقتك بموضوع صور ساره هو الموضوع يضايق بس انا ضايقتك وانا عندي كام كتكوته علشان ازعلك؟ فسبتلك الرساله دي لوحدها علشاان تعرفي ان قد ايه نفسيي متفتكريش ان ضايقتك ابدا وزي مانا قايلك كتكت مبسوط حمود مبسوط بحبك يرودي</p>
+    <div class="final-signature">mohamed <span>♡</span> rudy</div>
+    <button class="thanks-close" id="closeThanks" type="button">إغلاق</button>
+  </div>
+</div>
+
+  <div class="cd-modal" id="cdModal" aria-hidden="true"><div class="cd-modal-card"><button class="cd-modal-close" id="closeCD" aria-label="إغلاق">×</button><div class="cd-modal-kicker">A SPECIAL MESSAGE FOR YOU</div><img src="assets/cd-surprise.jpg" alt="مفاجأة رويدا" class="cd-surprise-image"><h2>موافقة؟ هاخدها غصب 😂😂</h2></div></div>
+  <div class="footer">made with ♡ for Rowida</div>
+ </main>
+</section>
+
+<section class="screen" id="reader">
+ <main class="reader">
+  <div class="reader-top" style="justify-content:center"><span>📖 ♡</span></div>
+  <article class="paper"><div class="paper-inner"><h2 id="pageTitle">الفصل الأول</h2><div class="story" id="story"></div></div></article>
+  <div class="reader-controls"><button class="btn secondary" id="prev">← السابقة</button><span class="dots" id="pageCount">1 / 3</span><button class="btn" id="next">التالية →</button></div>
+  <div class="finish-note" id="finishNote">خلصتي الحكاية دي؟ ♡<br>ارجعي للصفحة الرئيسية <strong>(يلا علشان نكمل)</strong></div>
+  <div style="text-align:center;margin-top:18px"><button class="btn secondary" id="homeBtn">العودة للصفحة الرئيسية</button><div class="hint">(يلا علشان نكمل)</div></div>
+  <div class="footer" style="text-align:center">خدي وقتك في القراءة... دي ليكي إنتِ ♡</div>
+ </main>
+</section>
+
+<div id="journey" aria-hidden="true">
+ <div class="journey-progress" id="journeyProgress"></div>
+ <button class="journey-close" id="journeyClose">إغلاق ×</button>
+ <section class="journey-scene s1 active">
+  <div class="journey-content"><div class="journey-kicker">THE OBSERVABLE UNIVERSE</div><div class="journey-number">∞</div><h2 class="journey-title">تخيّلي إن كل ده موجود...</h2><div class="journey-rule"></div><p class="journey-copy">مساحات شاسعة، ضوء قطع مليارات السنين، ونجوم أبعد من إن الخيال يقدر يحيط بيها.<br>واللي شايفينه بعنينا، مجرد جزء صغير من الحكاية.</p><button class="journey-next">كمّلي الرحلة　→</button></div>
+ </section>
+ <section class="journey-scene s2">
+  <div class="journey-content"><div class="journey-kicker">GALAXIES</div><div class="journey-number">مليارات</div><h2 class="journey-title">مجرّات لا تُحصى بسهولة</h2><div class="journey-rule"></div><p class="journey-copy">كل مجرّة عالم واسع، فيه نجوم وأنظمة وكواكب، وبينها مسافات لا تشبه أي مسافة نعرفها على الأرض.</p><button class="journey-next">والأبعد من كده؟　→</button></div>
+ </section>
+ <section class="journey-scene s3">
+  <div class="journey-content"><div class="journey-kicker">PLANETS & WORLDS</div><div class="journey-number">مليارات</div><h2 class="journey-title">عوالم تدور حول نجوم بعيدة</h2><div class="journey-rule"></div><p class="journey-copy">كواكب بأحجام ودرجات حرارة وظروف مختلفة، وفي وسط الاتساع ده كله، فيه كوكب واحد نعرفه كويس...</p><button class="journey-next">قرّبي الصورة　→</button></div>
+ </section>
+ <section class="journey-scene s4">
+  <div class="journey-content"><div class="journey-kicker">PLANET EARTH</div><div class="journey-number">7</div><h2 class="journey-title">قارات على كوكب واحد</h2><div class="journey-rule"></div><p class="journey-copy">أرض واسعة، وبحار ومحيطات، ومدن وبلاد كتير. وعلى الخريطة دي، فيه بلد اسمها مصر.</p><button class="journey-next">ننزل أقرب　→</button></div>
+ </section>
+ <section class="journey-scene s5">
+  <div class="journey-content"><div class="journey-kicker">EGYPT</div><div class="journey-number">195</div><h2 class="journey-title">دول العالم... ومصر واحدة منها</h2><div class="journey-rule"></div><p class="journey-copy">ومن مصر، نقرّب أكتر... لحد محافظة، ومدينة، وشوارع عادية جدًا على الخريطة.</p><button class="journey-next">فاضل خطوة　→</button></div>
+ </section>
+ <section class="journey-scene s6">
+  <div class="journey-content"><div class="journey-kicker">BENI SUEF · EGYPT</div><div class="journey-number" style="font-family:'Cairo';font-size:clamp(38px,8vw,76px)">بني سويف</div><div class="journey-rule"></div><p class="journey-copy">من بين كل الأماكن البعيدة دي، وصلنا لمكان صغير على الخريطة.<br>بس الحكاية من الأول مكنتش عن الأماكن...</p><button class="journey-next">اعرفي الحكاية　→</button></div>
+ </section>
+ <section class="journey-scene final">
+  <div class="journey-content"><div class="journey-kicker">AND THEN, THERE WAS YOU</div><div class="final-photo-wrap"><img class="final-photo" src="assets/rowida.jpg" alt="رويدا"></div><div class="final-line">من بين كل الحاجات والدنيا دي،<br>محبتش حد قدك.<br>ومهما دورت، مش هلاقي حد في حلاوتك.<br><strong>عمري ما هشوف حد زيك.</strong><br>وبس.</div><div class="journey-rule"></div><button class="journey-next" id="journeyAgain">إعادة الرحلة ↺</button></div>
+ </section>
+</div>
+
+<script>
+
+
+
+const envelopeMessages=[
+  {title:'أجمل حاجة بحبها فيكي',text:'حنيتك ♡'},
+  {title:'أكتر حاجة بتزعلني منك',text:'عمري ما بزعل منك ❤️'},
+  {title:'أكتر حاجة نفسي فيها',text:'أشوفك أكبر دكتورة أسنان أطفال في الدنيا، وأشوفك ناجحة ومحققة كل اللي بتحلمي بيه.'},
+  {title:'أكتر حاجة نفسي فيها كمان',text:'إني أشتري أفافيز ليكي 😂❤️'}
+];
+const envelopeButtons=[...document.querySelectorAll('.envelope')];
+const revealBox=document.getElementById('envelopeReveal');
+envelopeButtons.forEach((button)=>{
+ button.addEventListener('click',()=>{
+   const item=envelopeMessages[Number(button.dataset.envelope)];
+   envelopeButtons.forEach(b=>b.classList.remove('opened'));
+   button.classList.add('opened');
+   document.getElementById('revealTitle').textContent=item.title;
+   document.getElementById('revealText').textContent=item.text;
+   revealBox.classList.add('show');
+   revealBox.scrollIntoView({behavior:'smooth',block:'nearest'});
+ });
+});
+document.getElementById('closeEnvelope').onclick=()=>{
+ revealBox.classList.remove('show');
+ envelopeButtons.forEach(b=>b.classList.remove('opened'));
+};
+
+const cdModal=document.getElementById('cdModal');document.getElementById('openCD').onclick=()=>{cdModal.classList.add('open');cdModal.setAttribute('aria-hidden','false');};document.getElementById('closeCD').onclick=()=>{cdModal.classList.remove('open');cdModal.setAttribute('aria-hidden','true');};cdModal.addEventListener('click',e=>{if(e.target===cdModal){cdModal.classList.remove('open');cdModal.setAttribute('aria-hidden','true');}});
+
+const voiceAudio=document.getElementById('voiceAudio');
+const voiceToggle=document.getElementById('voiceToggle');
+const voiceSeek=document.getElementById('voiceSeek');
+const voiceCurrent=document.getElementById('voiceCurrent');
+const voiceDuration=document.getElementById('voiceDuration');
+const fmtTime=(seconds)=>{if(!Number.isFinite(seconds))return '0:00';const m=Math.floor(seconds/60),s=Math.floor(seconds%60);return `${m}:${String(s).padStart(2,'0')}`};
+voiceAudio.addEventListener('loadedmetadata',()=>{voiceDuration.textContent=fmtTime(voiceAudio.duration)});
+voiceToggle.addEventListener('click',async()=>{if(voiceAudio.paused){try{await voiceAudio.play();voiceToggle.textContent='Ⅱ';voiceToggle.setAttribute('aria-label','إيقاف مؤقت')}catch(e){voiceToggle.textContent='▶'}}else{voiceAudio.pause();voiceToggle.textContent='▶';voiceToggle.setAttribute('aria-label','تشغيل')}});
+voiceAudio.addEventListener('timeupdate',()=>{voiceCurrent.textContent=fmtTime(voiceAudio.currentTime);if(voiceAudio.duration){voiceSeek.value=(voiceAudio.currentTime/voiceAudio.duration)*100}});
+voiceSeek.addEventListener('input',()=>{if(voiceAudio.duration)voiceAudio.currentTime=(Number(voiceSeek.value)/100)*voiceAudio.duration});
+voiceAudio.addEventListener('ended',()=>{voiceToggle.textContent='▶';voiceToggle.setAttribute('aria-label','تشغيل');voiceSeek.value=0});
+
+const journey=document.getElementById('journey');
+const journeyScenes=[...journey.querySelectorAll('.journey-scene')];
+let journeyIndex=0;
+function showJourneyScene(i){journeyIndex=i;journeyScenes.forEach((s,n)=>s.classList.toggle('active',n===i));document.getElementById('journeyProgress').style.width=((i+1)/journeyScenes.length*100)+'%';journey.scrollTop=0;}
+function openJourney(){journey.classList.add('open');journey.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';showJourneyScene(0);}
+function closeJourney(){journey.classList.remove('open');journey.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+document.getElementById('startJourney').onclick=openJourney;
+document.getElementById('thirdButton').onclick=()=>document.getElementById('thirdThing').scrollIntoView({behavior:'smooth'});
+document.getElementById('journeyClose').onclick=closeJourney;
+journey.querySelectorAll('.journey-next').forEach(btn=>btn.addEventListener('click',()=>{if(journeyIndex<journeyScenes.length-1)showJourneyScene(journeyIndex+1);}));
+document.getElementById('journeyAgain').onclick=()=>showJourneyScene(0);
+
+const floaties=document.getElementById('floaties');
+for(let i=0;i<30;i++){const s=document.createElement('span');s.className='heart';s.textContent=['♡','♥','✿','✧','❀'][i%5];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(13+Math.random()*24)+'px';s.style.animationDuration=(9+Math.random()*14)+'s';s.style.animationDelay=(-Math.random()*20)+'s';floaties.appendChild(s)}
+const screens=['login','home','reader'];function show(id){screens.forEach(x=>document.getElementById(x).classList.toggle('active',x===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('name').value.trim();const pass=document.getElementById('password').value.trim();const err=document.getElementById('error');if(name!=='كتكت'){err.textContent='الاسم من أربع حروف ❤️';return}if(pass!=='1922006'){err.textContent='الباسورد من 7 أرقام مش 6 🙈';return}err.textContent='';show('home')});
+document.getElementById('goDown').onclick=()=>document.getElementById('more').scrollIntoView({behavior:'smooth'});
+document.getElementById('homeBtn').onclick=()=>show('home');
+const pages=[{"title":"كتكووتي","text":"كتكووتي \r\nفكره ان دي اخر ررساله مبينا حااجه اخر اععع بس بمعني اخر رساله مبينا ك معاكساتي او قله ادبي متقوليش الحمد لله ف سرك او اي كلام عدل بقولو عموما\r\nبس كل الفكره ان ان او انتي هنبقا موجودين عادي ال محتاج حاجه التاني موجود ملخص لحاجه اسئله صياح للكليه ولو مليون ريكورد بمليون ساعه عمري مزهق منك يكتكوته \r\nبس هيا كل الفكره يبقا الشات اي حد مسكه يبقا نضيف  حتي لو فيه كلام + ميبقاش كلامنا فيه حاجه حرام وانا باذن الله هحاول اعمل كده وامسك نفسي جداا من حلاوتك \r\nعارف ان الكلام الغلط كله مني وباذن الله هظبط نفسي علشانيي وعلشانك برضو جايز النصيب ميصبش وكدها ولو اتجوزتي ميبقاش حد قل ادبه غيره اعععععع ضيق نفس \r\n"},{"title":"خليني أقولك حاجة","text":"المهم يعني باذن الله انا هتعدل وابقا بني ادم كويس لان زي مقولتلك ان انا ليا فتره كبيره بعيد عن كل حاجه دينيا دنيويا حجات كتير كنت منتظم فيها و قطعت وبوظت حجات كتير حلوه كنت بعملها \r\nودا بسببك بصراحه لان حقيقي دماغي كلها فكتكوتي وبصراحه دماغي معاها حق انتي كل حاجه حلوه فيكي شكلا ملامح قصه الشعر شخضيه تحفه (معادا انك م هتقولي موافقه)\r\nوبجد حنيه مش متخيله انا ببقا مبسوط بالموضوع دا ازاي اه بتتعصبي مبتشوفيش قدامك و كمان عصبيه بس حقيقي حنيتك جميله جدا و ببقا مبسوط لو زعلتك وبتسامحيني علي طول |\r\n"},{"title":"حاجات جوايا","text":"وان مهما جيت اشتكتلك من اي حاجه بتسمعيني وحقيقي مفيش فيكي عيب كلك مميزات دي حقيققه دي مش حقيقه انا بس ال شايف كده ميهمنيش ال بيهمني ان انا عمري مشوفت واحده فيها الصفات دي كلها |\r\nمعظم الناس بتكلم واحده واتنين وتخون اه لانهم خاينين وولاد*** وملهمش مبرر اكيد بس اكيد لو واحده فيها كل حاجه حلوه هزار تلاقي ولما بتتفحي مبتوقفيش زعل ولما بتتقمصي مبتسكتيسش و تتصالحي بسرعه نكد تلاقي حنيه وحتي لو مبتتقالش ب اللفظ ف اكيد مش هحتاجها\r\nلانن مش كل ال بيتكلم بيعمل ياما نااس بتبيع كلام وملهوش لزمه وناس ب تصرفاتها ال مبقولش اوقات عليها ان دي حاجه حلوه ب النسبالي لانك بتتكسفييي بس بيبين انك بتقدريني فحجات كتير بس بقولك مبتقدريش علشان اسمعها منك يكتكوته \r\n"},{"title":"تفاصيل صغيرة","text":"المهم انا بشكرك جدا علي كل حاجه فعلا انتي انساننهه قليل لو حد لقي زيها وجايز دا من اسباب تمسكي بيكي ي كتكت ونفسي والله اشوفك حاجه حلوه جدا لانك تعبتيي كتيير وانا شاهد علي كدا ولو ب الاربع خمس شهور ال قضيناهم |\r\nحتيي لو تعبك النفسي عموما ف انتي تستحقيي كتير والله ووالله نفسيي اشوفككككك مبسوطه طول حياتك سواء الحاجه دي معايا او مع غيري بس بمجرد اشوفك مبسوطه فدايما هتلاقيني مبسوط والعكس يكتكت \r\n"},{"title":"حكاية الوصول","text":"وطبعااا انا مبسوط من نفسي اكيد ان عرفت اوصل لكتكت سواء ب جر كلام برساله باي حاجه زي مخدنا كورس انجليزي سوا وبسمعه علشانك وطبعا ايه المشكله بس لانيي كنت عايز اوصلك كام معلومه علشان تبقا كلام مش مني لاني لو بدايه كلامي كنت قولتلك بخاف عليكي من كذه وكذه كنتي هتقولي تفكير متحرش ومحدش بيفكر كدا\r\nل يوم كان نفسي اكلمك فيه وطبعا مبناش كلام ف افتكرت انك نزلتي استريك ب اسبايدر مان ف سالتك عليه حلو ولا لا وانا اساسا مكنتش هسمعه وبعدها خليتك ترشحيلي اسماء افلام و مسلسلات وناخد زوق بعض والكلام خدنا لزوقنا ف كل حاجه علشان اقول زوقيق ف البنات واخدصفاتك لحجاات كتيير\r\n"},{"title":"اللي بحبه فيكي","text":"والالعاب ال حملتها علشان اللعبها معاكي علشان نلاقي محتوي واكلمك بيه لحد معترفلك يكتكوته وختمت ب استوري نزلتهولك ومكنيتش فاهمه هو لمين او فاهمه الله اعلم ولما نزلته اتكلمنا اليوم دا وبعدها بعتلك رساله فيها تلميح بسيط ونمت صحيت لقيتك \r\nمردتيش فمسحت الرساله لانيي عرفتت ان الموضوع وقفف وبعدها ردييتي وحسيت انها مش نهايه العالم وتفااصييل كتيير لو هحكيلك لبكرا حجات انتي مش واخده بالك منها بس حقيقي تعبت نفسيا عقبال موصللت بس بصرراااحه تستاهليييي \r\nلذه الوصول بتنسي الطريق ( حكمه لسه مخترعها ) المهم يعني علشان مطولش عليكي قولي طول علي راي عمي محمود \r\n"},{"title":"كلام من قلبي","text":"انااا مش بختمها حاليا مبينا بس بختمها قله ادبي ومعاكسااتي وطبعا عمري مشوفت منك حاجه عدله كلمه يعني معادا ريبوستات التيك توك ال متابعها وباخدها عليا بصراحه بس بخاف اقولك شكرا عليها ت قوليلي دي مش عليك اساسا ف باخدها وانا ساااكت\r\nوكنت مبسوط بيهم جدا والله حتي يومها فضلت اقولك انا حابك بس مكنش بسبب الصهد بسوء ظنك دا \r\nوطبعاا بتااسف علي قله ادبي ومكنتش كتيرههه بجد يعني ان يطلع مني دول بس وقدامي حونشايه زيك فانا كده فوق الاحترام بشوييه وامسكك صهدي ف انا توب التوب بس لازم اتاسف بررضوو بيكتكت اما بعد كده لو فيه نصيب هنسيكي معني اللبس وهقفل الموضوع علشان متشتمش \r\n"},{"title":"ذكريات الطريق","text":"بس بجد طبعيي مش قله ادب و اوقات بنكشك بس ك رخامه ايوا اوقات قله ادب بتبقا صهد بس المعظم بحب ارخمم علييكي وافتكرييي حتي لو فيا قله ادب الدنيا كلهاا ف انا ف الاول والاخر بخاف عليكي يكتكوتي وان عمري مكلامي كان مصلحه وانتي اكيد عارف كده يحلوه \r\nوطبعاا لو قعدت لبكرااا احكيلك ان انا بحبك قد ايه وان قد ايه مبشوفش ف الدنيا غيرك مش هيكفيي وانتي عارفه كده يكتكت بسس عنديي كام طلب ليكي يكتكوته ودا حقيقي لان مش هيبقا ليا دعوه ب الموضوع دااا هبقاااا غرييبببب لاننا هنرجع زي الاول \r\n"},{"title":"اعتذار واعتراف","text":"طبعا الللبس الرقبه والايدين وانتي جميله ومبسوط بيكي جدا والله ف موضوع الشعر يارب تثبتي كده وكمانن القرايب سواء اولاد اعمام واولاد خال والناس ال مبحبهاش و اي ولد ف الكليه سواء بيسال علي حاجه بيعمل يسال اي حد هناك مجتش عليكي خليكي ناشففه ف التعامل \r\nانا كدا كدا بثق فيكي اكتر من نفسي بس اوقات دماغك بتوهي وبتتعاملي ب حسن نيتك انتي وال قدامك اولاد كلب وكماان متهزريييش مع قرايبناااا سواااء قدامي او من وراايياا وكل داا اعتبرييه مش ليااا ليكيي ولو ولولوولولوفيه نصيب قدام برصضو \r\n"},{"title":"طلبات حمود","text":"ودا حقيقي طلب لو عايزه تعمليه علشان خاطر حموود انااا اساسا كنت بفكر ارو ح عندد املل وانتي عماله تكلمينيي دلوقت علي الفيديو بتاع التنمر ومش فاضيللك لان ورايا براجراف ب اعمله فمش فاضي اساسا اجييي حتي لو نفسي اشوف كتكوتي \r\n"},{"title":"القرار الصح","text":"وفالنهايه يكتكوته قبل متدخلي تشوفي بقيه الموقع فانا بحبك جدا جداا وفعلاا طول عمريي كنتي حلم ب النسبالي ان اكلمك او بعد كده وواحد اتحقق والتاني هو ونصيبه وجاييز ربك يكرمم ب قد ايه سبت حاجه بحبها للدرجه دي ووالله مسايبك غير اننا بنعمل حاجه غلط كان نفسي اكون جمبك وتفضلي تصيحي الوقت كله بس الحاجه الحرام ممش هطولها ولو طلتها هيحصل مشاكل بعدين طب وهنشيل ذنوب طب واحنا علي ايهه ننهي حتي لو صعبه ونرجع زي مكنا زمان او انا بالاخص يعني وعلي قد مسبت كتكوتي ال بعشقههاا ربنا يكرمني بعدين ولو النصيب مظبطش ف اختيار ربنا احسن اكيد \r\n"},{"title":"وآخر الكلام","text":"وانا واننتيي نتوب عن الموضوع دا علشاان ربنا يغفرنا ال فات باذن الله وربنا يبعد عنك ولاد الحرام والحلال والولاد وكل حاجه لحد مجهز نفسي اما انا جايب الثقه منين ان الموضوع سهل اولاد باذن الله ان ربناا يكرمني بيهه بدونن مجهوود مني ثانيا هتعرفي السبب بعد شويه مالموقع\r\nوبس كدا يكتكوته اسيببك تكملي بقيه الحجات بمووت فييييييييييييييييييييييكييييييييييييييييييييييييييييييييييييييييييييييييييي"}];
+let page=0,timer=null;
+const visitedPages=new Set();
+function renderPage(){
+  clearInterval(timer);
+  const p=pages[page];
+  document.getElementById('pageTitle').textContent=p.title;
+  document.getElementById('pageCount').textContent=`${page+1} / ${pages.length}`;
+  document.getElementById('prev').disabled=page===0;
+  document.getElementById('prev').style.opacity=page===0?'.45':'1';
+  document.getElementById('next').style.display=page===pages.length-1?'none':'inline-block';
+  document.getElementById('finishNote').classList.toggle('show',page===pages.length-1);
+  const el=document.getElementById('story');
+  el.textContent='';
+  if(visitedPages.has(page)){el.textContent=p.text;return;}
+  visitedPages.add(page);
+  const cursor=document.createElement('span');
+  cursor.className='cursor';
+  el.appendChild(cursor);
+  const chars=p.text;
+  let i=0;
+  timer=setInterval(()=>{
+    if(i>=chars.length){clearInterval(timer);cursor.remove();return;}
+    cursor.before(document.createTextNode(chars[i++]));
+  },24);
+}
+
+function renderPage(){
+  if(timer){clearInterval(timer);timer=null;}
+  const p=pages[page];
+  document.getElementById('pageTitle').textContent=p.title;
+  document.getElementById('pageCount').textContent=`${page+1} / ${pages.length}`;
+  document.getElementById('prev').disabled=page===0;
+  document.getElementById('prev').style.opacity=page===0?'.45':'1';
+  document.getElementById('next').style.display=page===pages.length-1?'none':'inline-block';
+  document.getElementById('finishNote').classList.toggle('show',page===pages.length-1);
+
+  // Important: insert the complete Arabic string as ONE text node.
+  // Splitting Arabic into individual character nodes breaks letter joining in iOS Safari.
+  const el=document.getElementById('story');
+  el.classList.remove('story-reveal');
+  el.textContent=p.text;
+  void el.offsetWidth;
+  el.classList.add('story-reveal');
+}
+document.getElementById('openBook').onclick=()=>{page=0;show('reader');renderPage()};
+document.getElementById('prev').onclick=()=>{if(page>0){page--;renderPage()}};
+document.getElementById('next').onclick=()=>{if(page<pages.length-1){page++;renderPage()}};
+
+const thanksModal=document.getElementById('thanksModal');
+let heartRain=null;
+function makeHeart(){
+  const h=document.createElement('span');h.className='flying-heart';
+  h.textContent=['♡','♥','💗','💕','❤'][Math.floor(Math.random()*5)];
+  h.style.setProperty('--x',(Math.random()*100)+'vw');
+  h.style.setProperty('--dur',(4+Math.random()*4)+'s');
+  h.style.setProperty('--rot',(-50+Math.random()*100)+'deg');
+  h.style.fontSize=(18+Math.random()*28)+'px';
+  document.body.appendChild(h);setTimeout(()=>h.remove(),8500);
+}
+function openThanks(){
+  thanksModal.classList.add('open');thanksModal.setAttribute('aria-hidden','false');
+  for(let i=0;i<34;i++)setTimeout(makeHeart,i*75);
+  heartRain=setInterval(makeHeart,240);
+}
+function closeThanks(){
+  thanksModal.classList.remove('open');thanksModal.setAttribute('aria-hidden','true');
+  clearInterval(heartRain);heartRain=null;
+}
+document.getElementById('openThanks').addEventListener('click',openThanks);
+document.getElementById('closeThanks').addEventListener('click',closeThanks);
+thanksModal.addEventListener('click',e=>{if(e.target===thanksModal)closeThanks()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&thanksModal.classList.contains('open'))closeThanks()});
+
+</script>
+</body></html>
